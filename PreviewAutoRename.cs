@@ -1,20 +1,14 @@
-using System;
-using System.IO;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-
 ///----------------------------------------------------------------------------
 ///   Module:       Preview autorename
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      1.0.1
+///   Version:      1.0.2
 ///----------------------------------------------------------------------------
 
 using System;
 using System.IO;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json;
 
 public class CPHInline
 {
@@ -24,7 +18,7 @@ public class CPHInline
         CPH.LogInfo(game);
         string pathToPreviewFolder = args["pathToPreviewFolder"].ToString(); // путь до директории с заставками.
         string filename = pathToPreviewFolder + game + ".png";
-        string newname = pathToPreviewFolder + "Prewiev.png";
+        string newname = pathToPreviewFolder + "Preview.png";
         if (File.Exists(newname))
         {
             File.Delete(newname);
@@ -32,10 +26,5 @@ public class CPHInline
 
         File.Copy(filename, newname);
         return true;
-    }
-
-    public class AlertData
-    {
-        public string Game { get; set; }
     }
 }
